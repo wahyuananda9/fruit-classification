@@ -1,34 +1,34 @@
-# Proyek Klasifikasi Gambar Buah dengan CNN
+# Fruit Image Classification with CNN
 
-Repositori ini berisi kode dan sumber daya untuk membangun, melatih, dan men-deploy model *Convolutional Neural Network* (CNN) untuk mengklasifikasikan 90 jenis buah yang berbeda. Model ini dilatih menggunakan dataset "Fruits 360" dan mencapai akurasi yang sangat tinggi.
+This repository contains the code and resources to build, train, and deploy a Convolutional Neural Network (CNN) model to classify 90 different types of fruits. The model was trained on the "Fruits 360" dataset and achieved very high accuracy.
 
 [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/whyyou50/fruits_classification)
 
-## Daftar Isi
-1.  [Deskripsi Proyek](#deskripsi-proyek)
+## Table of Contents
+1.  [Project Description](#project-description)
 2.  [Dataset](#dataset)
-3.  [Arsitektur Model](#arsitektur-model)
-4.  [Hasil](#hasil)
-5.  [Instalasi](#instalasi)
-6.  [Cara Menggunakan](#cara-menggunakan)
+3.  [Model Architecture](#model-architecture)
+4.  [Results](#results)
+5.  [Installation](#installation)
+6.  [How to Use](#how-to-use)
 7.  [Deployment](#deployment)
-8.  [Struktur File](#struktur-file)
+8.  [File Structure](#file-structure)
 
-## Deskripsi Proyek
-Proyek ini mengimplementasikan CNN menggunakan TensorFlow dan Keras untuk melakukan klasifikasi gambar. Tujuannya adalah untuk membuat model yang dapat secara akurat mengidentifikasi jenis buah dari sebuah gambar. Proyek ini mencakup semua langkah mulai dari pra-pemrosesan data, pembangunan model, pelatihan, evaluasi, hingga deployment ke platform publik.
+## Project Description
+This project implements a CNN using TensorFlow and Keras for an image classification task. The goal is to create a model that can accurately identify the type of fruit from an image. The project covers all steps from data preprocessing, model building, training, evaluation, to deployment on a public platform.
 
 ## Dataset
-* **Nama Dataset**: Fruits 360.
-* **Sumber**: Diunduh melalui `kagglehub` dari dataset `moltean/fruits`.
-* **Spesifikasi**:
-    * **Jumlah Kelas**: 90.
-    * **Data Latih**: 26.335 gambar.
-    * **Data Validasi**: 2.887 gambar.
-    * **Data Uji**: 14.527 gambar.
-    * **Resolusi Input**: Gambar diubah ukurannya menjadi `500x500` piksel.
+* **Dataset Name**: Fruits 360.
+* **Source**: Downloaded via `kagglehub` from the `moltean/fruits` dataset.
+* **Specifications**:
+    * **Number of Classes**: 90.
+    * **Training Data**: 26,335 images.
+    * **Validation Data**: 2,887 images.
+    * **Test Data**: 14,527 images.
+    * **Input Resolution**: Images are resized to `500x500` pixels.
 
-## Arsitektur Model
-Model ini menggunakan arsitektur `Sequential` dari Keras. Lapisan-lapisan utamanya adalah sebagai berikut:
+## Model Architecture
+The model uses Keras's `Sequential` API. The main layers are as follows:
 * `Conv2D(32, (3,3), activation='relu', input_shape=(500, 500, 3))`
 * `MaxPooling2D(2, 2)`
 * `Conv2D(64, (3,3), activation='relu')`
@@ -38,13 +38,13 @@ Model ini menggunakan arsitektur `Sequential` dari Keras. Lapisan-lapisan utaman
 * `Dropout(0.5)`
 * `Dense(90, activation='softmax')`
 
-Model ini dikompilasi menggunakan optimizer `adam` dan loss function `categorical_crossentropy`.
+The model was compiled with the `adam` optimizer and `categorical_crossentropy` loss function.
 
-## Hasil
-Setelah melalui pelatihan selama 30 epoch, model dievaluasi pada set data uji dan mencapai hasil yang sangat memuaskan.
-* **Akurasi pada Data Uji**: **99.62%**.
+## Results
+After training for 30 epochs, the model was evaluated on the test set and achieved a highly satisfactory result.
+* **Test Accuracy**: **99.62%**.
 
-## Instalasi
-Untuk menjalankan proyek ini secara lokal, pastikan Anda memiliki Python dan `pip` terinstal. Kemudian, instal pustaka yang diperlukan:
+## Installation
+To run this project locally, ensure you have Python and `pip` installed. Then, install the required libraries:
 ```bash
 pip install tensorflow keras pillow scikit-learn matplotlib
